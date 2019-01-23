@@ -10,9 +10,15 @@ import org.joda.time.LocalDate;
 import org.joda.time.Period;
 import org.joda.time.PeriodType;
 
+import com.healthcareAssignment.Individualentity.ExaminationnewEntity;
+import com.healthcareAssignment.Individualentity.HospitalnewEntity;
+import com.healthcareAssignment.Individualentity.PatientnewEntity;
 import com.healthcareAssignment.entity.Examination;
 import com.healthcareAssignment.entity.Hospital;
 import com.healthcareAssignment.entity.Patient;
+import com.healthcareAssignment.individualmodels.ExaminationnewModel;
+import com.healthcareAssignment.individualmodels.HospitalnewModel;
+import com.healthcareAssignment.individualmodels.PatientnewModel;
 import com.healthcareAssignment.models.ExaminationModel;
 import com.healthcareAssignment.models.HospitalModel;
 import com.healthcareAssignment.models.PatientModel;
@@ -97,6 +103,77 @@ public class HospitalDto {
 		System.out.println(period.getMonths());
 		System.out.println(period.getYears());
 		return String.valueOf(period.getYears());
+	}
+
+	public static HospitalnewEntity newhospitalModelToEntity(HospitalnewModel objHospitalModel) {
+		HospitalnewEntity objHospital = new HospitalnewEntity();
+
+		try {
+
+			if (objHospitalModel.getId() != null) {
+				objHospital.setId(objHospitalModel.getId());
+			}
+			objHospital.setHospital_Name(objHospitalModel.getHospital_Name());
+			objHospital.setDescription(objHospitalModel.getDescription());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return objHospital;
+	}
+
+	public static PatientnewEntity newpatientModelToEntity(PatientnewModel objPatientnewModel) {
+		PatientnewEntity objPatientnewEntity = new PatientnewEntity();
+
+		try {
+
+			if (objPatientnewModel.getPatient_id() != null) {
+				objPatientnewEntity.setPatient_id(objPatientnewModel.getPatient_id());
+			}
+
+			objPatientnewEntity
+					.setDateOfBirth(stringToDate(objPatientnewModel.getDateOfBirth(), "yyyy-MM-dd HH:mm:ss"));
+			objPatientnewEntity.setGender(objPatientnewModel.getGender());
+
+			objPatientnewEntity.setPatient_Name(objPatientnewModel.getPatient_Name());
+			objPatientnewEntity.setAge(ageCal(objPatientnewEntity.getDateOfBirth()));
+			objPatientnewEntity.setGenerateDate(new Date());
+			
+			HospitalnewEntity objHospital = new HospitalnewEntity();
+			objHospital.setId(objPatientnewModel.getHospitalId());
+			
+			objPatientnewEntity.setHospital(objHospital);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return objPatientnewEntity;
+	}
+	
+	
+	public static ExaminationnewEntity newExamiModelToEntity(ExaminationnewModel objExaminationnewModel) {
+		ExaminationnewEntity objExaminationnewEntity = new ExaminationnewEntity();
+
+		try {
+
+			if (objExaminationnewModel.getEx_id() != null) {
+				objExaminationnewEntity.setEx_id(objExaminationnewModel.getEx_id());
+			}
+			objExaminationnewEntity.setEx_name(objExaminationnewModel.getEx_name());
+			objExaminationnewEntity.setEx_Description(objExaminationnewModel.getEx_Description());
+			objExaminationnewEntity.setExamDate(stringToDate(objExaminationnewModel.getExamDate(), "yyyy-MM-dd HH:mm:ss"));
+			
+			HospitalnewEntity objHospital = new HospitalnewEntity();
+			objHospital.setId(objExaminationnewModel.getHospitalId());
+			PatientnewEntity objPatientnewEntity = new PatientnewEntity();
+			objPatientnewEntity.setPatient_id(objExaminationnewModel.getPatientId());
+			objExaminationnewEntity.setHospital(objHospital);
+			objExaminationnewEntity.setPatient(objPatientnewEntity);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return objExaminationnewEntity;
 	}
 
 }
