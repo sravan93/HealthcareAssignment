@@ -1,0 +1,106 @@
+/*Adding data */
+{
+  "hospital_Name": "pal",
+  "description": "today is wednesday",
+  "patient": [
+    {
+      "patient_Name": "rarrrma",
+      "gender": "Male",
+      "dateOfBirth": "1990-01-01 10:14:55",
+      "exmination": [
+        {
+          "ex_name": "rama",
+          "ex_Description": "testsft",
+          "examDate": "1989-01-01 10:14:55"
+        },
+        {
+          "ex_name": "rama",
+          "ex_Description": "testes",
+          "examDate": "1699-01-01 10:14:55"
+        }
+      ]
+    },
+    {
+      "patient_Name": "rarrma",
+      "gender": "Male",
+      "dateOfBirth": "1999-01-01 10:14:55",
+      "exmination": [
+        {
+          "ex_name": "bama",
+          "ex_Description": "testsft",
+          "examDate": "1909-01-01 10:14:55"
+        },
+        {
+          "ex_name": "rama",
+          "ex_Description": "testes",
+          "examDate": "1099-01-01 10:14:55"
+        }
+      ]
+    }
+  ]
+}
+
+/*update data */
+
+{
+	"id":1,
+  "hospital_Name": "raju",
+  "description": "basic",
+  "patient": [
+    {
+      "patient_id":5,
+      "patient_Name": "ram",
+      "gender": "Male",
+       "dateOfBirth": "1990-01-01 10:14:55",
+      "exmination": [
+        {
+        	"ex_id" : 1,
+          "ex_name": "ran",
+          "ex_Description": "testsft",
+          "examDate": "1991-01-01 10:14:55"
+        },
+        {
+        	"ex_id" : 2,
+          "ex_name": "amay",
+          "ex_Description": "testes",
+          "examDate": "1980-01-01 10:14:55"
+        }
+      ]
+    },
+    {
+      "patient_id":6,
+      "patient_Name": "teat",
+      "gender": "Male",
+        "dateOfBirth": "1996-01-01 10:14:55",
+      "exmination": [
+        {
+        	"ex_id" : 3,
+          "ex_name": "etesd",
+          "ex_Description": "testsft",
+          "examDate": "1990-11-01 10:14:55"
+        },
+        {
+        	"ex_id" : 4,
+          "ex_name": "stet",
+          "ex_Description": "testes",
+          "examDate": "1290-01-01 10:14:55"
+        }
+      ]
+    }
+  ]
+}
+
+
+/* delete data /searchById */
+{
+	
+  "id":2
+}
+
+urls:
+http://localhost:8080/searchData
+http://localhost:8080/updateHospitalData
+http://localhost:8080/deleteHospitalData
+http://localhost:8080/createHospitalData
+http://localhost:8080/searchDataByID
+
