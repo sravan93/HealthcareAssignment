@@ -105,14 +105,14 @@ http://localhost:8080/createHospitalData
 http://localhost:8080/searchDataByID
 http://localhost:8080/createHospitalDataOnly
 {
-  "id": null,
+ 
   "hospital_Name": "appolo",
   "description": "basic"
 }
 
 http://localhost:8080/createPatientDataOnly
 {
-  "patient_id": null,
+  
   "patient_Name": "hai",
   "gender": "Male",
   "dateOfBirth": "1990-01-01 10:14:55",
@@ -121,7 +121,7 @@ http://localhost:8080/createPatientDataOnly
 
 http://localhost:8080/createExaminationDataOnly
 {
-  "ex_id": null,
+  
    "ex_name": "tin",
    "ex_Description": "testsft",
   "examDate": "1989-01-01 10:14:55",
