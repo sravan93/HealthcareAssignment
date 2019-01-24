@@ -6,6 +6,7 @@ public class ExaminationModel {
 	private String examDate;
 	private String ex_name;
 	private String ex_Description;
+	
 
 	public int getEx_id() {
 		return ex_id;
@@ -38,4 +39,7 @@ public class ExaminationModel {
 	public void setEx_Description(String ex_Description) {
 		this.ex_Description = ex_Description;
 	}
+
+	
+	
 }

@@ -55,6 +55,7 @@ public class HospitalDto {
 					objLocExamination.setEx_id(objExamination.getEx_id());
 					objLocExamination.setEx_name(objExamination.getEx_name());
 					objLocExamination.setEx_Description(objExamination.getEx_Description());
+					
 					objLocExamination.setExamDate(stringToDate(objExamination.getExamDate(), "yyyy-MM-dd HH:mm:ss"));
 
 					objLocExamination.setPatient(objLocPatient);
@@ -162,7 +163,8 @@ public class HospitalDto {
 			objExaminationnewEntity.setEx_name(objExaminationnewModel.getEx_name());
 			objExaminationnewEntity.setEx_Description(objExaminationnewModel.getEx_Description());
 			objExaminationnewEntity.setExamDate(stringToDate(objExaminationnewModel.getExamDate(), "yyyy-MM-dd HH:mm:ss"));
-			
+			objExaminationnewEntity.setHeight(objExaminationnewModel.getHeight());
+			objExaminationnewEntity.setWeight(objExaminationnewModel.getWeight());
 			HospitalnewEntity objHospital = new HospitalnewEntity();
 			objHospital.setId(objExaminationnewModel.getHospitalId());
 			PatientnewEntity objPatientnewEntity = new PatientnewEntity();

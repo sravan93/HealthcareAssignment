@@ -125,6 +125,8 @@ http://localhost:8080/createExaminationDataOnly
    "ex_name": "tin",
    "ex_Description": "testsft",
   "examDate": "1989-01-01 10:14:55",
+   "weight": "50",
+  "height": "152.5",
   "hospitalId":2,
   "patientId":3
 }
@@ -167,6 +169,8 @@ http://localhost:8080/updateExaminationDataOnly
   "ex_id": 1,
    "ex_name": "urine",
    "ex_Description": "tests is week",
+    "weight": "50",
+  "height": "152.5",
   "examDate": "1989-01-01 10:14:55",
   "hospitalId":2,
   "patientId":3

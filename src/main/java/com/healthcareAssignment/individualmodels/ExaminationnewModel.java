@@ -15,6 +15,8 @@ public class ExaminationnewModel {
 	private Integer patientId;
 	private String patientName;
 
+	private String weight;
+	private String height;
 	
 
 	public Integer getEx_id() {
@@ -79,6 +81,22 @@ public class ExaminationnewModel {
 
 	public void setPatientName(String patientName) {
 		this.patientName = patientName;
+	}
+
+	public String getWeight() {
+		return weight;
+	}
+
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+
+	public String getHeight() {
+		return height;
+	}
+
+	public void setHeight(String height) {
+		this.height = height;
 	}
 	
 	

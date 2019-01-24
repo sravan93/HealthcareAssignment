@@ -224,6 +224,8 @@ public class HosiptalRepoImpl implements HosiptalRepo {
 					objnewExaminationnewModel.setEx_name(objExaminationnewEntity.getEx_name());
 					objnewExaminationnewModel.setEx_Description(objExaminationnewEntity.getEx_Description());
 					objnewExaminationnewModel.setExamDate(objExaminationnewEntity.getExamDate().toString());
+					objnewExaminationnewModel.setHeight(objExaminationnewEntity.getHeight());
+					objnewExaminationnewModel.setWeight(objExaminationnewEntity.getWeight());
 					objnewExaminationnewModel.setPatientName(objExaminationnewEntity.getPatient().getPatient_Name());
 					objnewExaminationnewModel.setPatientId(objExaminationnewEntity.getPatient().getPatient_id());
 					objnewExaminationnewModel.setHospitalName(objExaminationnewEntity.getHospital().getHospital_Name());

@@ -37,6 +37,14 @@ public class ExaminationnewEntity implements Serializable {
 	@Column(name = "ex_Description")
 	private String ex_Description;
 	
+	@NotNull
+	@Column(name = "weight")
+	private String weight;
+	@NotNull
+	@Column(name = "height")
+	private String height;
+	
+	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "patient_id", referencedColumnName = "patient_id")
@@ -94,5 +102,21 @@ public class ExaminationnewEntity implements Serializable {
 
 	public void setHospital(HospitalnewEntity hospital) {
 		this.hospital = hospital;
+	}
+
+	public String getWeight() {
+		return weight;
+	}
+
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+
+	public String getHeight() {
+		return height;
+	}
+
+	public void setHeight(String height) {
+		this.height = height;
 	}
 }
