@@ -1,7 +1,6 @@
 package com.healthcareAssignment.repository;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -158,9 +157,9 @@ public class HosiptalRepoImpl implements HosiptalRepo {
 		List<HospitalnewEntity> objList = null;
 
 		try {
-			
+
 			Criteria criteria = entityManager.unwrap(Session.class).createCriteria(HospitalnewEntity.class);
-			objList =  criteria.list();
+			objList = criteria.list();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -173,28 +172,27 @@ public class HosiptalRepoImpl implements HosiptalRepo {
 	@Override
 	public List<PatientnewModel> searchByPatient(PatientnewModel patientModel) {
 		List<PatientnewEntity> objList = null;
-		List<PatientnewModel> objNewModel=new ArrayList<>();
+		List<PatientnewModel> objNewModel = new ArrayList<>();
 		try {
 			Criteria criteria = entityManager.unwrap(Session.class).createCriteria(PatientnewEntity.class);
 			criteria.createAlias("hospital", "hospital");
 			criteria.add(Restrictions.eq("hospital.id", patientModel.getHospitalId()));
-			objList =  criteria.list();
-			
-			if(objList!=null && objList.size()>0){
-				for(PatientnewEntity objLocPatientnewEntity:objList){
-					PatientnewModel objPatientnewModel=new PatientnewModel();
+			objList = criteria.list();
+
+			if (objList != null && objList.size() > 0) {
+				for (PatientnewEntity objLocPatientnewEntity : objList) {
+					PatientnewModel objPatientnewModel = new PatientnewModel();
 					objPatientnewModel.setPatient_id(objLocPatientnewEntity.getPatient_id());
-					objPatientnewModel
-					.setDateOfBirth(objLocPatientnewEntity.getDateOfBirth().toString());
+					objPatientnewModel.setDateOfBirth(objLocPatientnewEntity.getDateOfBirth().toString());
 					objPatientnewModel.setGender(objLocPatientnewEntity.getGender());
 
 					objPatientnewModel.setPatient_Name(objLocPatientnewEntity.getPatient_Name());
 					objPatientnewModel.setAge(objLocPatientnewEntity.getAge());
 					objPatientnewModel.setHospitalName(objLocPatientnewEntity.getHospital().getHospital_Name());
 					objPatientnewModel.setHospitalId(objLocPatientnewEntity.getHospital().getId());
-					//objPatientnewModel.setGenerateDate(objLocPatientnewEntity.getGenerateDate().toString());
+					// objPatientnewModel.setGenerateDate(objLocPatientnewEntity.getGenerateDate().toString());
 					objNewModel.add(objPatientnewModel);
-					
+
 				}
 			}
 		} catch (Exception e) {
@@ -209,19 +207,19 @@ public class HosiptalRepoImpl implements HosiptalRepo {
 	@Override
 	public List<ExaminationnewModel> searchByExamination(ExaminationnewModel objExaminationnewModel) {
 		List<ExaminationnewEntity> objList = null;
-		List<ExaminationnewModel>  objLOcList=new ArrayList<>();
+		List<ExaminationnewModel> objLOcList = new ArrayList<>();
 		try {
-			
+
 			Criteria criteria = entityManager.unwrap(Session.class).createCriteria(ExaminationnewEntity.class);
 			criteria.createAlias("hospital", "hospital");
 			criteria.createAlias("patient", "patient");
 			criteria.add(Restrictions.eq("hospital.id", objExaminationnewModel.getHospitalId()));
 			criteria.add(Restrictions.eq("patient.patient_id", objExaminationnewModel.getPatientId()));
-			objList =  criteria.list();
-			if(objList!=null && objList.size()>0){
-				
-				for(ExaminationnewEntity objExaminationnewEntity:objList){
-					ExaminationnewModel objnewExaminationnewModel=new ExaminationnewModel();
+			objList = criteria.list();
+			if (objList != null && objList.size() > 0) {
+
+				for (ExaminationnewEntity objExaminationnewEntity : objList) {
+					ExaminationnewModel objnewExaminationnewModel = new ExaminationnewModel();
 					objnewExaminationnewModel.setEx_id(objExaminationnewEntity.getEx_id());
 					objnewExaminationnewModel.setEx_name(objExaminationnewEntity.getEx_name());
 					objnewExaminationnewModel.setEx_Description(objExaminationnewEntity.getEx_Description());
@@ -232,7 +230,7 @@ public class HosiptalRepoImpl implements HosiptalRepo {
 					objnewExaminationnewModel.setHospitalId(objExaminationnewEntity.getHospital().getId());
 					objLOcList.add(objnewExaminationnewModel);
 				}
-				
+
 			}
 
 		} catch (Exception e) {
@@ -242,6 +240,57 @@ public class HosiptalRepoImpl implements HosiptalRepo {
 			entityManager.clear();
 		}
 		return objLOcList;
+	}
+
+	@Override
+	public HospitalnewEntity deleteHospitalDataOnly(Integer id) {
+		HospitalnewEntity objEntity = null;
+		try {
+			objEntity = entityManager.find(HospitalnewEntity.class, id);
+			entityManager.remove(objEntity);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			entityManager.flush();
+			entityManager.clear();
+		}
+
+		return objEntity;
+	}
+
+	@Override
+	public PatientnewEntity deletePatientDataOnly(Integer patient_id) {
+		PatientnewEntity objEntity = null;
+		try {
+			objEntity = entityManager.find(PatientnewEntity.class, patient_id);
+			entityManager.remove(objEntity);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			entityManager.flush();
+			entityManager.clear();
+		}
+
+		return objEntity;
+	}
+
+	@Override
+	public ExaminationnewEntity deleteExaminationDataOnly(Integer ex_id) {
+		ExaminationnewEntity objEntity = null;
+		try {
+			objEntity = entityManager.find(ExaminationnewEntity.class, ex_id);
+			entityManager.remove(objEntity);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			entityManager.flush();
+			entityManager.clear();
+		}
+
+		return objEntity;
 	}
 
 }

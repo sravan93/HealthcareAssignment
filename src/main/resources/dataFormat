@@ -103,5 +103,89 @@ http://localhost:8080/updateHospitalData
 http://localhost:8080/deleteHospitalData
 http://localhost:8080/createHospitalData
 http://localhost:8080/searchDataByID
+http://localhost:8080/createHospitalDataOnly
+{
+  "id": null,
+  "hospital_Name": "appolo",
+  "description": "basic"
+}
 
+http://localhost:8080/createPatientDataOnly
+{
+  "patient_id": null,
+  "patient_Name": "hai",
+  "gender": "Male",
+  "dateOfBirth": "1990-01-01 10:14:55",
+  "hospitalId": 2
+}
+
+http://localhost:8080/createExaminationDataOnly
+{
+  "ex_id": null,
+   "ex_name": "tin",
+   "ex_Description": "testsft",
+  "examDate": "1989-01-01 10:14:55",
+  "hospitalId":2,
+  "patientId":3
+}
+
+http://localhost:8080/searchByHospital
+{
+}
+
+http://localhost:8080/searchByPatient
+{
+	"hospitalId":2
+}
+
+http://localhost:8080/searchByExamination
+
+{
+	"hospitalId":2,
+	"patientId":3
+}
+
+
+http://localhost:8080/updateHospitalDataOnly
+{
+  "id": 1,
+  "hospital_Name": "stone",
+  "description": "basic desc"
+}
+
+http://localhost:8080/updatePatientDataOnly
+{
+  "patient_id": 2,
+  "patient_Name": "hai",
+  "gender": "Male",
+  "dateOfBirth": "1990-01-01 10:14:55",
+  "hospitalId": 2
+}
+
+http://localhost:8080/updateExaminationDataOnly
+{
+  "ex_id": 1,
+   "ex_name": "urine",
+   "ex_Description": "tests is week",
+  "examDate": "1989-01-01 10:14:55",
+  "hospitalId":2,
+  "patientId":3
+}
+
+http://localhost:8080/deleteHospitalDataOnly
+{
+	
+  "id":2
+}
+
+http://localhost:8080/deletePatientDataOnly
+{
+	 "patient_id": 1
+}
+
+http://localhost:8080/deleteExaminationDataOnly
+
+{
+	"ex_id": 1
+}
 

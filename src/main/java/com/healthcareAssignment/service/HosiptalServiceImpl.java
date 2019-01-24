@@ -92,4 +92,22 @@ public class HosiptalServiceImpl implements HosiptalService {
 		
 		return hosiptalRepo.createnewExaminaData(examinationData);
 	}
+
+	@Override
+	public HospitalnewEntity deleteHospitalDataOnly(Integer id) {
+		// TODO Auto-generated method stub
+		return hosiptalRepo.deleteHospitalDataOnly(id);
+	}
+
+	@Override
+	public PatientnewEntity deletePatientDataOnly(Integer patient_id) {
+		// TODO Auto-generated method stub
+		return hosiptalRepo.deletePatientDataOnly(patient_id);
+	}
+
+	@Override
+	public ExaminationnewEntity deleteExaminationDataOnly(Integer ex_id) {
+		// TODO Auto-generated method stub
+		return hosiptalRepo.deleteExaminationDataOnly(ex_id);
+	}
 }

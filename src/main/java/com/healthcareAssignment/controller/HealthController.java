@@ -70,7 +70,6 @@ public class HealthController {
 
 	}
 
-	
 	@RequestMapping(value = "/createHospitalDataOnly", method = RequestMethod.POST)
 	public HospitalnewEntity createHospitalData(@RequestBody HospitalnewModel hospitalData) {
 
@@ -100,9 +99,7 @@ public class HealthController {
 		return createExaminationnewEntity;
 
 	}
-	
-	
-	
+
 	@RequestMapping(value = "/searchByHospital", method = RequestMethod.POST)
 	public List<HospitalnewEntity> searchByHospital(@RequestBody HospitalnewModel hospitalData) {
 
@@ -123,6 +120,60 @@ public class HealthController {
 		return hosiptalService.searchByExamination(objExaminationnewModel);
 
 	}
+	
+	@RequestMapping(value = "/updateHospitalDataOnly", method = RequestMethod.POST)
+	public HospitalnewEntity updateHospitalDataOnly(@RequestBody HospitalnewModel hospitalData) {
+
+		HospitalnewEntity objHospital = HospitalDto.newhospitalModelToEntity(hospitalData);
+		HospitalnewEntity createHospitalData = hosiptalService.createnewHospitalData(objHospital);
+
+		return createHospitalData;
+
+	}
+
+	@RequestMapping(value = "/updatePatientDataOnly", method = RequestMethod.POST)
+	public PatientnewEntity updatePatientDataOnly(@RequestBody PatientnewModel ibjPatientnewModel) {
+
+		PatientnewEntity objPatientnewEntity = HospitalDto.newpatientModelToEntity(ibjPatientnewModel);
+		PatientnewEntity createPatientnewEntity = hosiptalService.createnewPatientData(objPatientnewEntity);
+
+		return createPatientnewEntity;
+
+	}
+
+	@RequestMapping(value = "/updateExaminationDataOnly", method = RequestMethod.POST)
+	public ExaminationnewEntity updateExaminationDataOnly(@RequestBody ExaminationnewModel objExaminationnewModel) {
+
+		ExaminationnewEntity objExaminationnewEntity = HospitalDto.newExamiModelToEntity(objExaminationnewModel);
+		ExaminationnewEntity createExaminationnewEntity = hosiptalService.createnewExaminaData(objExaminationnewEntity);
+
+		return createExaminationnewEntity;
+
+	}
+	
+	
+
+	@RequestMapping(value = "/deleteHospitalDataOnly", method = RequestMethod.POST)
+	public HospitalnewEntity deleteHospitalDataOnly(@RequestBody HospitalnewModel hospitalData) {
+
+
+		return hosiptalService.deleteHospitalDataOnly(hospitalData.getId());
+
+	}
+
+	@RequestMapping(value = "/deletePatientDataOnly", method = RequestMethod.POST)
+	public PatientnewEntity deletePatientDataOnly(@RequestBody PatientnewModel ibjPatientnewModel) {
+
+		return hosiptalService.deletePatientDataOnly(ibjPatientnewModel.getPatient_id());
+
+	}
+
+	@RequestMapping(value = "/deleteExaminationDataOnly", method = RequestMethod.POST)
+	public ExaminationnewEntity deleteExaminationDataOnly(@RequestBody ExaminationnewModel objExaminationnewModel) {
+
+		return hosiptalService.deleteExaminationDataOnly(objExaminationnewModel.getEx_id());
+
+	}
+	
 
 }
-

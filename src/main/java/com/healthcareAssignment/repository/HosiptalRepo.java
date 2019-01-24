@@ -30,6 +30,12 @@ public interface HosiptalRepo{
 
 	ExaminationnewEntity createnewExaminaData(ExaminationnewEntity examinationData);
 
+	HospitalnewEntity deleteHospitalDataOnly(Integer id);
+
+	PatientnewEntity deletePatientDataOnly(Integer patient_id);
+
+	ExaminationnewEntity deleteExaminationDataOnly(Integer ex_id);
+
 		
 
 }
